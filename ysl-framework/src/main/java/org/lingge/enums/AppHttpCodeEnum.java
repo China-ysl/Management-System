@@ -17,7 +17,9 @@ public enum AppHttpCodeEnum {
     THE_NICKNAME_IS_NOT_EMPTY(508,"昵称不能为空"),
     THE_PASSWORD_IS_NOT_EMPTY(509,"密码不能为空"),
     THE_EMAIL_IS_NOT_EMPTY(510,"邮箱不能为空"),
-    NICKNAME_EXIST(501,"昵称已存在"),;
+    NICKNAME_EXIST(501,"昵称已存在"),
+    LOGO_BRAND(500,"必填参数为空"),;
+
     int code;
     String msg;
 

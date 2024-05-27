@@ -8,6 +8,7 @@ public class SystemConstants {
     /**
      * 状态
      * 0正常使用
+     * 未删除状态
      */
     public static final String NORMAL_USE="0";
     /**
@@ -47,6 +48,5 @@ public class SystemConstants {
      */
     public static final String MENU_TYPE="C";
     public static final String BUTTON="F";
-
     public static final String NORMAL = "0";
 }
