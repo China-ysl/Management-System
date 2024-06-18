@@ -49,20 +49,29 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 //    System-分页查询品牌
     @Override
     public ResponseResult<Product> getBrandPage(Integer pageNum, Integer pageSize, ProductDto productdto) {
+
         LambdaQueryWrapper<Product> queryWrapper = new LambdaQueryWrapper<>();
+
         queryWrapper.like(StringUtils.hasText(productdto.getBrandName()),Product::getBrandName,productdto.getBrandName());
+
         queryWrapper.eq(Objects.nonNull(productdto.getStatus()), Product::getStatus, productdto.getStatus());
+
         Page<Product> page = new Page<>();
+
         page.setCurrent(pageNum);
+
         page.setSize(pageSize);
+
         page(page,queryWrapper);
+
         List<Product> shoppingList = page.getRecords();
-        List<Product> brandList = BeanCopyUtils.copyList(shoppingList, Product.class);
+
+
         if (productdto.getBrandName() == ""){
-            ProductVo ProductVo = new ProductVo(getBrandlength(),brandList);
+            ProductVo ProductVo = new ProductVo(getBrandlength(),shoppingList);
             return ResponseResult.okResult(ProductVo);
         }else {
-            ProductVo ProductVo = new ProductVo(brandList.size(),brandList);
+            ProductVo ProductVo = new ProductVo(shoppingList.size(),shoppingList);
             return ResponseResult.okResult(ProductVo);
         }
     }

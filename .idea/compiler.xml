@@ -9,7 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ysl-admin" />
         <module name="ysl-framework" />
-        <module name="ysl-blog" />
+        <module name="ysl-frontdesk" />
       </profile>
     </annotationProcessing>
   </component>

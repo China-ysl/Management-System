@@ -27,11 +27,11 @@ public class ProductController {
     }
     @SystemLog(businessName = "System-品牌添加修改接口")
     @PutMapping
-    public ResponseResult addUpdate(@RequestBody  Product shopping){
-        if (!StringUtils.hasText(shopping.getBrandName()) || !StringUtils.hasText(shopping.getLogoUrl())){
+    public ResponseResult addUpdate(@RequestBody  Product product){
+        if (!StringUtils.hasText(product.getBrandName()) || !StringUtils.hasText(product.getLogoUrl())){
             throw new SystemException(AppHttpCodeEnum.LOGO_BRAND);
         }else {
-            shoppingService.saveOrUpdate(shopping);
+            shoppingService.saveOrUpdate(product);
         }
         return ResponseResult.okResult();
     }

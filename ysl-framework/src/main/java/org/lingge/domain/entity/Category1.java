@@ -23,7 +23,6 @@ import java.util.Date;
 public class Category1 {
     //一级分类id@TableId
     private Long id;
-
     //一级分类名
     private String name;
     //创建人的用户id

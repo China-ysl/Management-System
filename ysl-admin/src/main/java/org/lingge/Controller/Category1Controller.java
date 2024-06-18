@@ -1,10 +1,8 @@
 package org.lingge.Controller;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.lingge.domain.ResponseResult;
 import org.lingge.domain.entity.Category1;
+import org.lingge.domain.entity.Category2;
 import org.lingge.service.Category1Service;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -26,17 +24,13 @@ public class Category1Controller {
     @Resource
     private Category1Service category1Service ;
     /**
-     * 分页查询所有数据
-     *
-     * @param page 分页对象
-     * @param category1 查询实体
+     * 查询所有数据
      * @return 所有数据
      */
     @GetMapping
-    public ResponseResult selectAll(Page<Category1> page, Category1 category1) {
-        return ResponseResult.okResult(this.category1Service.page(page, new QueryWrapper<>(category1)));
+    public ResponseResult selectAll() {
+        return category1Service.getAttr();
     }
-
     /**
      * 通过主键查询单条数据
      *
@@ -45,7 +39,7 @@ public class Category1Controller {
      */
     @GetMapping("/{id}")
     public ResponseResult selectOne(@PathVariable Serializable id) {
-        return ResponseResult.okResult(this.category1Service.getById(id));
+        return ResponseResult.okResult(category1Service.getById(id));
     }
 
     /**
@@ -56,9 +50,18 @@ public class Category1Controller {
      */
     @PostMapping
     public ResponseResult insert(@RequestBody Category1 category1) {
-        return ResponseResult.okResult(this.category1Service.save(category1));
+        return ResponseResult.okResult(category1Service.save(category1));
     }
-
+    /**
+     * 批量新增数据
+     *
+     * @param attrList 实体对象
+     * @return 新增结果
+     */
+    @PostMapping("/batchAdd")
+    public ResponseResult batchAdd(@RequestBody List<Category1> attrList) {
+        return ResponseResult.okResult(this.category1Service.saveBatch(attrList));
+    }
     /**
      * 修改数据
      *
@@ -67,7 +70,7 @@ public class Category1Controller {
      */
     @PutMapping
     public ResponseResult update(@RequestBody Category1 category1) {
-        return ResponseResult.okResult(this.category1Service.updateById(category1));
+        return ResponseResult.okResult(category1Service.updateById(category1));
     }
 
     /**
@@ -78,7 +81,7 @@ public class Category1Controller {
      */
     @DeleteMapping
     public ResponseResult delete(@RequestParam("idList") List<Long> idList) {
-        return ResponseResult.okResult(this.category1Service.removeByIds(idList));
+        return ResponseResult.okResult(category1Service.removeByIds(idList));
     }
 }
 

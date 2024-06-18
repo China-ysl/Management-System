@@ -11,7 +11,7 @@
     <modules>
         <module>ysl-framework</module>
         <module>ysl-admin</module>
-        <module>ysl-blog</module>
+        <module>ysl-frontdesk</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

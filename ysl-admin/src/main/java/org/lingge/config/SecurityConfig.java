@@ -83,11 +83,41 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/content/tag/listAllTag").authenticated()
                 .antMatchers("/content/tag/{id}").authenticated()
                 .antMatchers("/upload").authenticated()
+
                 .antMatchers("/system/user").authenticated()
                 .antMatchers("/system/user/list").authenticated()
                 .antMatchers("/system/user/{userId}").authenticated()
                 .antMatchers("/system/user/changeStatus").authenticated()
                 .antMatchers("/system/user/{userIds}").authenticated()
+
+                .antMatchers("/Attr").authenticated()
+                .antMatchers("/Attr/{id}").authenticated()
+                .antMatchers("/Attr/batchAdd").authenticated()
+
+                .antMatchers("/Attr2").authenticated()
+                .antMatchers("/Attr2/{id}").authenticated()
+                .antMatchers("/Attr2/batchAdd").authenticated()
+
+                .antMatchers("/Attr3").authenticated()
+                .antMatchers("/Attr3/{id}").authenticated()
+                .antMatchers("/Attr3/batchAdd").authenticated()
+
+                .antMatchers("/Shopping").authenticated()
+                .antMatchers("/Shopping/getBrand").authenticated()
+                .antMatchers("/Shopping/getBrandPage").authenticated()
+                .antMatchers("/Shopping/{id}").authenticated()
+                .antMatchers("/Shopping/img").authenticated()
+
+                .antMatchers("/AttrList").authenticated()
+                .antMatchers("/AttrList/All").authenticated()
+                .antMatchers("/AttrList/{id}").authenticated()
+                .antMatchers("/AttrList/AttrListAdd").authenticated()
+                .antMatchers("/AttrList/{AttrId1}/{AttrId2}/{AttrId3}").authenticated()
+
+                .antMatchers("/AttrValue").authenticated()
+                .antMatchers("/AttrValue/{id}").authenticated()
+                .antMatchers("/AttrValue/AttrListAdd").authenticated()
+
                 // 除上面外的所有请求全部不需要认证即可访问
                 .anyRequest().permitAll();
         //添加认证、授权失败处理器

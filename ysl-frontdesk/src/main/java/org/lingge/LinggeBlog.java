@@ -1,0 +1,21 @@
+package org.lingge;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.SpringBootVersion;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+@MapperScan("org.lingge.mapper")
+@SpringBootApplication
+@ConfigurationPropertiesScan
+//@EnableScheduling定时任务注解
+@EnableScheduling
+public class LinggeBlog {
+    public static void main(String[] args) {
+        SpringApplication.run(LinggeBlog.class,args);
+        System.out.println("后端端blog启动成功！");
+    }
+}
