@@ -118,6 +118,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/AttrValue/{id}").authenticated()
                 .antMatchers("/AttrValue/AttrListAdd").authenticated()
 
+                .antMatchers("/SpuImage").authenticated()
+                .antMatchers("/SpuImage/List").authenticated()
+                .antMatchers("/SpuImage/{id}").authenticated()
+
+
                 // 除上面外的所有请求全部不需要认证即可访问
                 .anyRequest().permitAll();
         //添加认证、授权失败处理器

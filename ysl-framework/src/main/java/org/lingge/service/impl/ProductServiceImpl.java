@@ -8,6 +8,7 @@ import org.lingge.constants.SystemConstants;
 import org.lingge.domain.ResponseResult;
 import org.lingge.domain.dto.ProductDto;
 import org.lingge.domain.entity.Product;
+import org.lingge.domain.vo.Product2Vo;
 import org.lingge.domain.vo.ProductVo;
 import org.lingge.mapper.ProductMapper;
 import org.lingge.service.ProductService;
@@ -42,7 +43,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         queryWrapper.eq(Product::getDelFlag, SystemConstants.NORMAL_USE);
         List<Product> List = list(queryWrapper);
 //        转化vo
-        List<Product> brandList = BeanCopyUtils.copyList(List, Product.class);
+        List<Product2Vo> brandList = BeanCopyUtils.copyList(List, Product2Vo.class);
 //        封装返回
         return ResponseResult.okResult(brandList);
     }

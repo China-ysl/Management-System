@@ -6,6 +6,7 @@ import org.lingge.domain.entity.Product;
 import org.lingge.enums.AppHttpCodeEnum;
 import org.lingge.exception.SystemException;
 import org.lingge.service.ProductService;
+import org.lingge.utils.BeanCopyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
